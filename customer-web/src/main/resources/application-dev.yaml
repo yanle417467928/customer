@@ -1,5 +1,3 @@
-# Druid连接池配置，官方配置参考：https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
-
 # 顾客库
 master:
   datasource:
@@ -38,3 +36,28 @@ spring:
         login-password: admin
         allow:
         deny:
+  dubbo:
+    application:
+      id: customer-api
+      name: live-dubbo-provider
+    registry:
+      address: zookeeper://127.0.0.1:2181
+  server: true
+  protocol:
+    name: dubbo
+    port: 20880
+server:
+  port: 8088
+
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+  ## dubbo springboot 配置
+
+
+
